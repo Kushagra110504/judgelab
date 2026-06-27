@@ -1,0 +1,37 @@
+# ─────────────────────────────────────────────
+# JudgeLab — .editorconfig
+# ─────────────────────────────────────────────
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# TypeScript / JavaScript / JSON / YAML / CSS / HTML / Markdown
+[*.{ts,tsx,js,jsx,json,yaml,yml,css,md,html}]
+indent_style = space
+indent_size = 2
+
+# Java
+[*.java]
+indent_style = space
+indent_size = 4
+
+# XML (Maven pom.xml)
+[*.xml]
+indent_style = space
+indent_size = 4
+
+# Properties files
+[*.properties]
+indent_style = space
+indent_size = 2
+
+# Makefile / shell
+[Makefile]
+indent_style = tab
+[*.sh]
+indent_style = space
+indent_size = 2
