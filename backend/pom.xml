@@ -79,6 +79,13 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <!-- Pin JVM timezone to UTC so pgjdbc sends a timezone that
+                         PostgreSQL 17 recognises. Asia/Calcutta (deprecated IANA
+                         name for India Standard Time) was removed in recent tzdata
+                         releases bundled with PostgreSQL 17. -->
+                    <jvmArguments>-Duser.timezone=UTC</jvmArguments>
+                </configuration>
             </plugin>
         </plugins>
     </build>

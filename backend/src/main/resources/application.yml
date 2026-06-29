@@ -3,20 +3,21 @@ spring:
     name: judgelab-backend
 
   datasource:
-    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:judgelab}
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5433}/${DB_NAME:judgelab}?TimeZone=UTC
     username: ${DB_USER:judgelab}
     password: ${DB_PASS:judgelab}
     driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
-      ddl-auto: none          # Flyway owns the schema; Hibernate must not modify it
+      ddl-auto: validate        # Flyway creates schema; Hibernate validates entities match it
     show-sql: false
     open-in-view: false
     properties:
       hibernate:
         format_sql: true
-        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          time_zone: UTC        # Ensures Instant fields are stored/retrieved in UTC
 
   flyway:
     enabled: true
